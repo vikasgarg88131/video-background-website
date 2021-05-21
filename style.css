@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200;1,400&display=swap');
+
+:root {
+    --overlay-color: #03a9f4;
+    --left-margin: 70px;
+    --text-transition: 0.5s;
+    --menu-width: 300px;
+    --social-icon-transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.showcase {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    height: 100vh;
+    transition: 0.5s ease;
+    background: #111;
+    z-index: 20;
+}
+
+.showcase.active {
+    right: var(--menu-width);
+}
+
+.showcase header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px var(--left-margin);
+    display: flex;
+    justify-content: space-between;
+    z-index: 20;
+}
+
+.showcase .logo {
+    font-size: 2em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--text-transition);
+}
+
+.showcase .logo:hover {
+    color: #fff;
+}
+
+.showcase .toggle {
+    width: 40px;
+    height: 40px;
+    background: url('menu.png') center center/cover no-repeat;
+    border: 1px solid seagreen;
+    transition: 1s;
+}
+
+.showcase .toggle.active {
+    background: url('close.png') center center/cover no-repeat;
+}
+
+.showcase video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -5;
+    opacity: .7;
+}
+
+.showcase .overlay {
+    position: inherit;
+    top: 0;
+    left: 0;
+    background: var(--overlay-color);
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: overlay;
+    z-index: -5;
+}
+
+/* Text */
+.showcase .text {
+    position: inherit;
+    top: 35%;
+    left: var(--left-margin);
+    max-width: 600px;
+    z-index: 20;
+}
+
+.showcase .text h2 {
+    font-size: 4em;
+    text-transform: uppercase;
+    margin-bottom: -20px;
+    transition: var(--text-transition);
+}
+
+.showcase .text h3 {
+    font-size: 3em;
+    text-transform: uppercase;
+    transition: var(--text-transition);
+    line-height: 1;
+}
+
+.showcase .text p {
+    font-size: 1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    transition: var(--text-transition);
+}
+
+.showcase .text a {
+    display: inline-block;
+    margin-top: 5px;
+    letter-spacing: 2px;
+    font-size: 1em;
+    text-decoration: none;
+    color: #333;
+    background: #fff;
+    padding: 5px 15px;
+    transition: 0.2s;
+}
+
+.showcase .text a:hover {
+    letter-spacing: 6px;
+}
+
+/* Social Icons */
+.showcase .social {
+    position: inherit;
+    top: 90%;
+    left: var(--left-margin);
+    display: flex;
+    align-items: center;
+}
+
+.showcase .social li {
+    list-style: none;
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
+    transition: var(--social-icon-transition);
+}
+
+.showcase .social li img {
+    width: 100%;
+    height: 100%;
+}
+
+.showcase .social li:hover {
+    transform: translateY(-10px);   
+}
+
+/* Menu items */
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--menu-width);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    z-index: -10;
+}
+
+.menu ul {
+    /* position: relative; */
+}
+
+.menu li {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    transition: 0.5s;
+}
+
+.menu li a:hover {
+    color: var(--overlay-color);
+}
+
+@media (max-width: 768px) {
+    .showcase, 
+    .showcase header {
+        padding: 20px 30px;
+    }
+
+    .showcase .text,
+    .showcase .social {
+        position: absolute;
+        left: 30px;
+    }
+
+    .showcase .text h2 {
+        font-size: 3em;
+    }
+
+    .showcase .text h3 {
+        font-size: 2em;
+    }
+
+    .showcase .text p {
+        font-size: 0.8em;
+    }
+
+    .showcase.active {
+        right: 200px;
+    }
+    
+    .menu {
+        width: 200px;
+    }
+}
